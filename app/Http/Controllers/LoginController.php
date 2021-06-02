@@ -13,8 +13,9 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-        return view('/login');
+       if(!auth()->attempt($request->only(['email', 'password'])))
+        return back()->with('message', 'Invalid Credentials');
+
+        return redirect()->route('dashboard');
     }
-
-
 }

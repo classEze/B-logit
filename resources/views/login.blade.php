@@ -1,7 +1,10 @@
 @extends('layouts/layout')
 @section('body')
     <p class='text-center font-bold text-2xl'> Login  </p>
-    <form action="/register" method='post'>
+    <form action="{{route('login')}}" method='post'>
+        @if(session('message'))
+        <span class="text-white inline-block ml-8 p-4 bg-red-500 rounded-xl my-2">{{session('message')}}</span>
+        @endif
         @csrf
         <div>
             <label for=""> Email *</label>
@@ -14,6 +17,5 @@
         <div>
             <button class='bg-blue-500 text-white'> Let's Go </button>
         </div>
-
 @endsection
 

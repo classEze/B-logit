@@ -25,3 +25,6 @@ Route::prefix( '/login')->group( function(){
     Route::post( "/", [LoginController::class , 'login'] )->name('login');
 }) ;
 
+Route::get('/dashboard', function(){
+     return '';
+})->name('dashboard');
